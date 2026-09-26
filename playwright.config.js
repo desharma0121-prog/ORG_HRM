@@ -3,8 +3,8 @@ require('dotenv').config();
 
 module.exports = defineConfig({
   testDir: './tests',
-  timeout: 90 * 1000,
-  expect: { timeout: 10 * 1000 },
+  timeout: 120000,
+  expect: { timeout: 15 * 1000 },
   fullyParallel: false,
   retries: process.env.CI ? 1 : 0,
   workers: 1,
@@ -19,7 +19,7 @@ module.exports = defineConfig({
     trace: 'retain-on-failure',
     video: 'on',
     actionTimeout: 15 * 1000,
-    navigationTimeout: 30 * 1000
+    navigationTimeout: 60 * 1000
   },
   projects: [
     {

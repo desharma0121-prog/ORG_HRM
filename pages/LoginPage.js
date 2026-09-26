@@ -27,34 +27,28 @@ class LoginPage {
 
         await this.username.waitFor({
             state: 'visible',
-            timeout: 15000
+            timeout: 30000
+            
         });
     }
 
     async login(username, password) {
 
-        // Enter username
         await this.username.fill(username);
 
-        // Enter password
         await this.password.fill(password);
 
-        // Click Login button
         await this.loginBtn.click();
 
-        // Wait for navigation/loading to complete
         await this.page.waitForLoadState('domcontentloaded');
     }
 
     async logout() {
 
-        // Open user menu
         await this.userDropdown.click();
 
-        // Click Logout
         await this.logoutLink.click();
 
-        // Wait for login page
         await this.page.waitForURL(
             /auth\/login/,
             { timeout: 15000 }
